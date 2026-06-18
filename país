@@ -1,0 +1,9 @@
+create table public.paÍs (
+  id bigint generated always as identity not null,
+  nome text not null,
+  continente_id bigint not null,
+  constraint paÍs_pkey primary key (id),
+  constraint paÍs_continente_id_key unique (continente_id),
+  constraint paÍs_nome_key unique (nome),
+  constraint fk_continente foreign KEY (continente_id) references continente (id)
+) TABLESPACE pg_default;
